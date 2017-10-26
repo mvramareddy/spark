@@ -4,7 +4,7 @@
  
     // or
 	
-	df.filter("salary> 500 OR salary <1000")
+	df.filter("salary> 500 AND salary <1000")
 	
 	//changing dataframe column values to upper case
 	
