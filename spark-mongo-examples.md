@@ -1,10 +1,22 @@
-    //changing dataframe column values to upper case
+    //filtering dataFrame 
+    
+     df.filter($"salary">500 && $"salary"<1000)	
+ 
+    // or
+	
+	df.filter("salary> 500 OR salary <1000")
+	
+	//changing dataframe column values to upper case
+	
+    df.registerTempTable("emp")
+    df.sqlContext.sql("select empId,upper(empName) as empName,salary from emp")
+      .show
+    df.show()
+	
+    // or
+	
+     df.select($"empName",upper($"empName")).show()
+	 
 
-    df3.registerTempTable("emp")
-    df3.sqlContext.sql("select empId,upper(empName) as empName,salary from emp")
-      .filter($"salary">1000).show
-    df3.show()
 	
-    //****** or *******
 	
-     df3.select($"empName",upper($"empName")).show()
